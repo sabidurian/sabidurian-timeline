@@ -1,6 +1,6 @@
 
 
-# Time & Line — Complete Guide
+# Time & Line
 
 **A set of Gantt chart and timeline views for Obsidian Bases.**
 
