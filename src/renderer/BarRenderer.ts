@@ -197,7 +197,7 @@ export class BarRenderer {
       for (const prop of this.displayProps) {
         const value = entry.properties[prop];
         if (value && value !== 'null') {
-          propParts.push(String(value).slice(0, 20));
+          propParts.push(String(value).replace(/\[\[|\]\]/g, '').slice(0, 20));
         }
       }
       if (propParts.length > 0) {
