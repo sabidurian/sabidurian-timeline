@@ -1,0 +1,1592 @@
+/* ══════════════════════════════════════════════
+   Style Settings Integration
+   Install the "Style Settings" community plugin
+   to customize these values from the Settings panel.
+   ══════════════════════════════════════════════ */
+
+/* @settings
+
+name: Time & Line
+id: time-and-line
+settings:
+    -
+        id: tl-bars-heading
+        title: Bars
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-bar-height
+        title: Bar height (px)
+        description: Height of each timeline bar in pixels
+        type: variable-number-slider
+        default: 28
+        min: 16
+        max: 48
+        step: 2
+        format: px
+    -
+        id: sabidurian-row-gap
+        title: Row gap (px)
+        description: Vertical gap between rows
+        type: variable-number-slider
+        default: 4
+        min: 0
+        max: 12
+        step: 1
+        format: px
+    -
+        id: sabidurian-bar-opacity
+        title: Bar opacity
+        description: Default opacity of timeline bars
+        type: variable-number-slider
+        default: 0.9
+        min: 0.3
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-bar-radius
+        title: Bar corner radius (px)
+        description: Border radius of timeline bars
+        type: variable-number-slider
+        default: 4
+        min: 0
+        max: 14
+        step: 1
+        format: px
+    -
+        id: sabidurian-bar-label-size
+        title: Bar label font size (px)
+        description: Font size for labels on timeline bars
+        type: variable-number-slider
+        default: 12
+        min: 9
+        max: 16
+        step: 1
+        format: px
+    -
+        id: sabidurian-bar-label-outside-size
+        title: Outside label font size (px)
+        description: Font size for labels that overflow outside the bar
+        type: variable-number-slider
+        default: 11
+        min: 8
+        max: 14
+        step: 1
+        format: px
+    -
+        id: sabidurian-uncertain-opacity
+        title: Uncertain range opacity
+        description: Opacity of fuzzy date range extensions
+        type: variable-number-slider
+        default: 0.25
+        min: 0.1
+        max: 0.6
+        step: 0.05
+    -
+        id: sabidurian-badge-opacity
+        title: Bar property text opacity
+        description: Opacity of inline property text on bars
+        type: variable-number-slider
+        default: 0.8
+        min: 0.2
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-grid-heading
+        title: Grid & Background
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-grid-band-opacity
+        title: Alternating band opacity
+        description: Opacity of the alternating background bands
+        type: variable-number-slider
+        default: 0.3
+        min: 0
+        max: 0.8
+        step: 0.05
+    -
+        id: sabidurian-grid-major-color
+        title: Major gridline color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#e0e0e0'
+        default-dark: '#3a3a3a'
+    -
+        id: sabidurian-grid-minor-color
+        title: Minor gridline color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#e0e0e0'
+        default-dark: '#3a3a3a'
+    -
+        id: sabidurian-grid-minor-opacity
+        title: Minor gridline opacity
+        type: variable-number-slider
+        default: 0.5
+        min: 0
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-today-heading
+        title: Today Marker
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-today-color
+        title: Today marker color
+        type: variable-color
+        format: hex
+        opacity: false
+        default: '#7b6cd9'
+    -
+        id: sabidurian-today-width
+        title: Today line width (px)
+        type: variable-number-slider
+        default: 2
+        min: 1
+        max: 6
+        step: 0.5
+        format: px
+    -
+        id: sabidurian-today-pulse
+        title: Today marker pulse animation
+        description: Disable to show a static today line
+        type: class-toggle
+        default: true
+    -
+        id: sabidurian-arrows-heading
+        title: Dependency Arrows
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-arrow-ok-color
+        title: Arrow color (satisfied)
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#4ade80'
+        default-dark: '#4ade80'
+    -
+        id: sabidurian-arrow-conflict-color
+        title: Arrow color (conflict)
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#f87171'
+        default-dark: '#f87171'
+    -
+        id: sabidurian-arrow-opacity
+        title: Arrow opacity
+        type: variable-number-slider
+        default: 0.7
+        min: 0.2
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-arrow-hover-width
+        title: Arrow hover stroke width (px)
+        type: variable-number-slider
+        default: 3.5
+        min: 2
+        max: 6
+        step: 0.5
+        format: px
+    -
+        id: sabidurian-selection-heading
+        title: Selection
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-select-color
+        title: Selection highlight color
+        description: Color of the stroke and glow on selected bars
+        type: variable-color
+        format: hex
+        opacity: false
+        default: '#7b6cd9'
+    -
+        id: sabidurian-select-stroke
+        title: Selection stroke width (px)
+        type: variable-number-slider
+        default: 2.5
+        min: 1
+        max: 5
+        step: 0.5
+        format: px
+    -
+        id: sabidurian-tooltip-heading
+        title: Tooltip
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-tooltip-radius
+        title: Tooltip border radius (px)
+        type: variable-number-slider
+        default: 6
+        min: 0
+        max: 16
+        step: 1
+        format: px
+    -
+        id: sabidurian-tooltip-max-width
+        title: Tooltip max width (px)
+        type: variable-number-slider
+        default: 300
+        min: 180
+        max: 500
+        step: 10
+        format: px
+    -
+        id: sabidurian-tooltip-shadow
+        title: Tooltip shadow intensity
+        description: "0 = no shadow, 1 = strong shadow"
+        type: variable-number-slider
+        default: 0.15
+        min: 0
+        max: 0.4
+        step: 0.05
+    -
+        id: sabidurian-groups-heading
+        title: Group Headers
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-group-header-opacity
+        title: Group header background opacity
+        type: variable-number-slider
+        default: 0.88
+        min: 0.3
+        max: 1
+        step: 0.02
+    -
+        id: sabidurian-group-name-size
+        title: Group name font size (px)
+        type: variable-number-slider
+        default: 12
+        min: 10
+        max: 16
+        step: 1
+        format: px
+    -
+        id: sabidurian-typography-heading
+        title: Typography
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-header-font-size
+        title: Header cell font size (px)
+        type: variable-number-slider
+        default: 11
+        min: 9
+        max: 14
+        step: 1
+        format: px
+    -
+        id: sabidurian-table-font-size
+        title: Side table font size (px)
+        type: variable-number-slider
+        default: 12
+        min: 10
+        max: 15
+        step: 1
+        format: px
+    -
+        id: sabidurian-controls-font-size
+        title: Controls bar font size (px)
+        type: variable-number-slider
+        default: 12
+        min: 10
+        max: 15
+        step: 1
+        format: px
+    -
+        id: sabidurian-hover-heading
+        title: Hover & Animation
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-bar-hover-lift
+        title: Bar hover lift (px)
+        description: How many pixels bars lift on hover
+        type: variable-number-slider
+        default: 1
+        min: 0
+        max: 4
+        step: 0.5
+        format: px
+    -
+        id: sabidurian-bar-hover-shadow
+        title: Bar hover shadow opacity
+        type: variable-number-slider
+        default: 0.18
+        min: 0
+        max: 0.4
+        step: 0.02
+    -
+        id: sabidurian-measure-heading
+        title: Measure Tool
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-measure-marker-color
+        title: Measure marker color
+        description: Color of the vertical marker lines and span
+        type: variable-color
+        format: hex
+        opacity: false
+        default: '#7b6cd9'
+    -
+        id: sabidurian-markers-heading
+        title: Calendar Markers
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-marker-line-opacity
+        title: Marker line opacity
+        type: variable-number-slider
+        default: 0.6
+        min: 0.1
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-marker-band-opacity
+        title: Marker band opacity
+        type: variable-number-slider
+        default: 0.08
+        min: 0.02
+        max: 0.3
+        step: 0.01
+    -
+        id: sabidurian-marker-label-opacity
+        title: Marker label opacity
+        type: variable-number-slider
+        default: 0.7
+        min: 0.2
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-marker-label-size
+        title: Marker label font size (px)
+        type: variable-number-slider
+        default: 10
+        min: 8
+        max: 14
+        step: 1
+        format: px
+    -
+        id: sabidurian-lock-heading
+        title: Locked Entries
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-lock-opacity
+        title: Lock icon opacity
+        type: variable-number-slider
+        default: 0.7
+        min: 0.2
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-locked-bar-opacity
+        title: Locked bar opacity
+        description: Opacity of bars on locked entries
+        type: variable-number-slider
+        default: 0.85
+        min: 0.4
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-fuzzy-heading
+        title: Fuzzy-Only Entries
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-fuzzy-only-opacity
+        title: Fuzzy-only bar opacity
+        description: Opacity of bars that have only uncertain dates
+        type: variable-number-slider
+        default: 0.55
+        min: 0.2
+        max: 1
+        step: 0.05
+    -
+        id: sabidurian-prop-text-heading
+        title: Bar Property Text
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: sabidurian-prop-text-size
+        title: Property text font size (px)
+        type: variable-number-slider
+        default: 10
+        min: 8
+        max: 14
+        step: 1
+        format: px
+
+*/
+
+/* Time & Line styles */
+/* All colors reference Obsidian CSS variables. Zero hard-coded colors. */
+
+/* ── Default values (Style Settings overrides these on body) ── */
+body {
+  --sabidurian-bar-height: 28px;
+  --sabidurian-row-gap: 4px;
+  --sabidurian-bar-opacity: 0.9;
+  --sabidurian-bar-radius: 4px;
+  --sabidurian-bar-label-size: 12px;
+  --sabidurian-bar-label-outside-size: 11px;
+  --sabidurian-grid-band-opacity: 0.3;
+  --sabidurian-grid-minor-opacity: 0.5;
+  --sabidurian-today-color: var(--interactive-accent);
+  --sabidurian-today-width: 2px;
+  --sabidurian-arrow-ok-color: var(--text-success, #4ade80);
+  --sabidurian-arrow-conflict-color: var(--text-error, #f87171);
+  --sabidurian-arrow-opacity: 0.7;
+  --sabidurian-arrow-hover-width: 3.5px;
+  --sabidurian-select-color: var(--interactive-accent);
+  --sabidurian-select-stroke: 2.5px;
+  --sabidurian-tooltip-radius: 6px;
+  --sabidurian-tooltip-max-width: 300px;
+  --sabidurian-tooltip-shadow: 0.15;
+  --sabidurian-group-header-opacity: 0.88;
+  --sabidurian-group-name-size: 12px;
+  --sabidurian-header-font-size: 11px;
+  --sabidurian-table-font-size: 12px;
+  --sabidurian-controls-font-size: 12px;
+  --sabidurian-bar-hover-lift: 1px;
+  --sabidurian-bar-hover-shadow: 0.18;
+  --sabidurian-uncertain-opacity: 0.25;
+  --sabidurian-badge-opacity: 0.8;
+  --sabidurian-measure-marker-color: var(--interactive-accent);
+  --sabidurian-marker-line-opacity: 0.6;
+  --sabidurian-marker-band-opacity: 0.08;
+  --sabidurian-marker-label-opacity: 0.7;
+  --sabidurian-marker-label-size: 10px;
+  --sabidurian-lock-opacity: 0.7;
+  --sabidurian-locked-bar-opacity: 0.85;
+  --sabidurian-fuzzy-only-opacity: 0.55;
+  --sabidurian-prop-text-size: 10px;
+}
+
+/* ── Container ── */
+.sabidurian-container {
+  --sabidurian-row-height: calc(var(--sabidurian-bar-height) + var(--sabidurian-row-gap));
+  --sabidurian-header-height: 48px;
+
+  font-family: var(--font-interface);
+  color: var(--text-normal);
+  background: var(--background-primary);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Controls bar ── */
+.sabidurian-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+  flex-shrink: 0;
+  font-size: var(--sabidurian-controls-font-size);
+}
+
+.sabidurian-controls-info {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.sabidurian-scale-select {
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  cursor: pointer;
+}
+
+.sabidurian-today-btn {
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--interactive-accent);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+.sabidurian-today-btn:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* ── Body layout ── */
+.sabidurian-body-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sabidurian-header-container {
+  display: flex;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+}
+
+.sabidurian-table-header-spacer {
+  flex-shrink: 0;
+  border-right: 1px solid var(--background-modifier-border);
+}
+
+.sabidurian-timeline-header-wrap {
+  flex: 1;
+  overflow: hidden;
+}
+
+.sabidurian-content-row {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ── Header bar ── */
+.sabidurian-header-bar {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.sabidurian-header-tier {
+  position: relative;
+  height: 24px;
+  min-height: 24px;
+  white-space: nowrap;
+}
+
+.sabidurian-header-cell {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--sabidurian-header-font-size);
+  color: var(--text-muted);
+  border-right: 1px solid var(--background-modifier-border);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.sabidurian-header-cell-tier {
+  font-weight: 600;
+  color: var(--text-normal);
+  font-size: var(--sabidurian-header-font-size);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* ── Side table ── */
+.sabidurian-side-table-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  overflow: hidden;
+  transition: width 0.2s ease;
+}
+
+.sabidurian-side-table-wrapper.sabidurian-side-table-collapsed {
+  width: 0 !important;
+  border-right: none;
+}
+
+.sabidurian-side-table-header {
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+}
+
+.sabidurian-side-table-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar on side table (scroll synced with timeline) */
+.sabidurian-side-table-body::-webkit-scrollbar {
+  display: none;
+}
+.sabidurian-side-table-body {
+  scrollbar-width: none;
+}
+
+.sabidurian-side-table {
+  position: relative;
+  min-height: 100%;
+}
+
+.sabidurian-st-header-row {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 4px;
+  gap: 2px;
+}
+
+.sabidurian-st-header-row .sabidurian-st-cell {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sabidurian-st-row {
+  display: flex;
+  align-items: center;
+  padding: 4px 4px;
+  gap: 2px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  transition: background 0.1s ease;
+  min-height: 28px;
+}
+
+.sabidurian-st-row:hover,
+.sabidurian-st-row.sabidurian-st-row-hover {
+  background: var(--background-modifier-hover);
+}
+
+.sabidurian-st-cell {
+  flex: 1;
+  font-size: var(--sabidurian-table-font-size);
+  color: var(--text-normal);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 4px;
+  min-width: 0;
+}
+
+.sabidurian-st-cell-title {
+  flex: 1.5;
+  font-weight: 500;
+}
+
+.sabidurian-st-link {
+  color: var(--text-normal);
+  text-decoration: none;
+  cursor: pointer;
+}
+.sabidurian-st-link:hover {
+  color: var(--interactive-accent);
+  text-decoration: underline;
+}
+
+/* ── Divider ── */
+.sabidurian-divider {
+  width: 6px;
+  flex-shrink: 0;
+  cursor: col-resize;
+  background: var(--background-modifier-border);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+.sabidurian-divider:hover {
+  background: var(--interactive-accent);
+  opacity: 0.6;
+}
+
+.sabidurian-divider-btn {
+  position: absolute;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 5;
+  line-height: 1;
+}
+.sabidurian-divider-btn:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+body.sabidurian-resizing {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+/* ── Timeline body ── */
+.sabidurian-timeline-body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+.sabidurian-svg {
+  display: block;
+}
+
+/* ── Grid ── */
+.sabidurian-grid-band {
+  fill: var(--background-secondary);
+  opacity: var(--sabidurian-grid-band-opacity);
+}
+
+.sabidurian-grid-line-major {
+  stroke: var(--sabidurian-grid-major-color, var(--background-modifier-border));
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.sabidurian-grid-line-minor {
+  stroke: var(--sabidurian-grid-minor-color, var(--background-modifier-border));
+  stroke-width: 0.5;
+  stroke-dasharray: 4, 4;
+  opacity: var(--sabidurian-grid-minor-opacity);
+  shape-rendering: crispEdges;
+}
+
+/* ── Today marker ── */
+.sabidurian-today-line {
+  stroke: var(--sabidurian-today-color);
+  stroke-width: var(--sabidurian-today-width);
+  shape-rendering: crispEdges;
+  animation: sabidurian-today-pulse 3s ease-in-out infinite;
+}
+
+/* Style Settings class toggle: disable today pulse */
+body:not(.sabidurian-today-pulse) .sabidurian-today-line {
+  animation: none;
+  opacity: 0.7;
+}
+
+.sabidurian-today-label {
+  fill: var(--sabidurian-today-color);
+  font-size: 10px;
+  font-weight: 600;
+  text-anchor: middle;
+  font-family: var(--font-interface);
+}
+
+@keyframes sabidurian-today-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Bars ── */
+.sabidurian-bar {
+  opacity: var(--sabidurian-bar-opacity);
+  rx: var(--sabidurian-bar-radius);
+  ry: var(--sabidurian-bar-radius);
+  cursor: pointer;
+  transition: opacity 0.15s ease, filter 0.15s ease;
+  stroke: none;
+}
+
+.sabidurian-bar-group {
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.2s ease;
+}
+
+.sabidurian-bar-group.sabidurian-bar-hover .sabidurian-bar {
+  opacity: 1;
+  filter: brightness(1.12);
+}
+
+.sabidurian-bar-group.sabidurian-bar-hover {
+  transform: translateY(calc(-1 * var(--sabidurian-bar-hover-lift)));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, var(--sabidurian-bar-hover-shadow)));
+}
+
+/* Click pulse */
+.sabidurian-bar-group:active .sabidurian-bar {
+  opacity: 1;
+  filter: brightness(1.25);
+}
+
+@keyframes sabidurian-bar-click-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.sabidurian-bar-label {
+  font-size: var(--sabidurian-bar-label-size);
+  font-family: var(--font-interface);
+  font-weight: 500;
+  pointer-events: none;
+  dominant-baseline: auto;
+}
+
+.sabidurian-bar-label-inside {
+  fill: var(--text-on-accent, #fff);
+}
+
+.theme-dark .sabidurian-bar-label-inside {
+  fill: var(--text-on-accent, #fff);
+}
+.theme-light .sabidurian-bar-label-inside {
+  fill: var(--text-on-accent, #fff);
+}
+
+.sabidurian-bar-label-outside {
+  fill: var(--text-muted);
+  font-size: var(--sabidurian-bar-label-outside-size);
+  font-weight: 400;
+}
+
+/* ── Ongoing event bars ── */
+.sabidurian-bar-ongoing .sabidurian-bar {
+  stroke: var(--text-muted);
+  stroke-width: 1;
+  stroke-dasharray: 6, 3;
+  paint-order: stroke fill;
+}
+
+.sabidurian-ongoing-fade {
+  pointer-events: none;
+}
+
+/* ── Fuzzy/uncertain date range extensions ── */
+.sabidurian-uncertain-range {
+  opacity: var(--sabidurian-uncertain-opacity);
+  stroke: var(--text-muted);
+  stroke-width: 1;
+  stroke-dasharray: 4, 2;
+  pointer-events: none;
+}
+
+.sabidurian-bar-group:hover .sabidurian-uncertain-range {
+  opacity: 0.35;
+}
+
+/* ── Fuzzy-only entries (no primary dates, rendered from possible-start/end) ── */
+.sabidurian-bar-fuzzy-only .sabidurian-bar {
+  opacity: var(--sabidurian-fuzzy-only-opacity);
+  stroke: var(--text-muted, #888);
+  stroke-width: 1.5;
+  stroke-dasharray: 6, 3;
+}
+
+/* ── Measure mode ── */
+.sabidurian-measure-mode {
+  cursor: crosshair;
+}
+
+.sabidurian-measure-mode .sabidurian-bar,
+.sabidurian-measure-mode .sabidurian-point-marker {
+  cursor: crosshair;
+}
+
+.sabidurian-measure-marker {
+  stroke: var(--sabidurian-measure-marker-color);
+  stroke-width: 1.5;
+  stroke-dasharray: 6, 3;
+  pointer-events: none;
+}
+
+.sabidurian-measure-span {
+  stroke: var(--sabidurian-measure-marker-color);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.sabidurian-measure-label {
+  position: absolute;
+  transform: translateX(-50%);
+  background: var(--background-secondary, var(--background-modifier-message, #333));
+  color: var(--text-normal, #fff);
+  border: 1px solid var(--background-modifier-border, transparent);
+  border-radius: var(--radius-s, 4px);
+  padding: 4px 10px;
+  font-size: var(--font-ui-small, 12px);
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 20;
+  line-height: 1.4;
+}
+
+.sabidurian-measure-btn.sabidurian-measure-active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* ── Per-note locked bars ── */
+.sabidurian-bar-locked .sabidurian-bar {
+  opacity: var(--sabidurian-locked-bar-opacity);
+}
+
+.sabidurian-bar-locked .sabidurian-resize-grip {
+  display: none;
+}
+
+.sabidurian-bar-locked {
+  cursor: default !important;
+}
+
+.sabidurian-lock-indicator {
+  pointer-events: none;
+  opacity: var(--sabidurian-lock-opacity);
+  color: var(--text-on-accent, #fff);
+}
+
+/* ── Calendar markers ── */
+.sabidurian-marker-line {
+  stroke-width: 1.5;
+  stroke-dasharray: 8, 4;
+  opacity: var(--sabidurian-marker-line-opacity);
+}
+
+.sabidurian-marker-band {
+  opacity: var(--sabidurian-marker-band-opacity);
+  pointer-events: none;
+}
+
+.sabidurian-marker-label {
+  font-size: var(--sabidurian-marker-label-size);
+  font-weight: 600;
+  opacity: var(--sabidurian-marker-label-opacity);
+  pointer-events: none;
+}
+
+/* ── Inline property text on bars ── */
+.sabidurian-bar-prop-inline {
+  fill: var(--text-on-accent, #fff);
+  font-size: var(--sabidurian-prop-text-size);
+  font-weight: 400;
+  opacity: var(--sabidurian-badge-opacity);
+  pointer-events: none;
+}
+
+/* ── Point markers ── */
+.sabidurian-point-marker {
+  stroke: var(--background-primary);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.sabidurian-bar-group.sabidurian-bar-hover .sabidurian-point-marker {
+  filter: brightness(1.2);
+  transform-origin: center;
+}
+
+/* ── Tooltip ── */
+.sabidurian-tooltip {
+  position: fixed;
+  z-index: 1000;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--sabidurian-tooltip-radius);
+  padding: 8px 12px;
+  font-size: var(--sabidurian-table-font-size);
+  color: var(--text-normal);
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, var(--sabidurian-tooltip-shadow));
+  pointer-events: none;
+  max-width: var(--sabidurian-tooltip-max-width);
+  font-family: var(--font-interface);
+}
+
+.sabidurian-tooltip strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+.sabidurian-tooltip-prop {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+/* ── Empty state ── */
+.sabidurian-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 32px 24px;
+  gap: 4px;
+}
+
+.sabidurian-empty-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.4;
+  color: var(--text-faint);
+}
+
+.sabidurian-empty p {
+  margin: 4px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sabidurian-hint {
+  color: var(--text-faint);
+  font-size: 12px;
+  max-width: 360px;
+}
+
+/* ── Resize grips ── */
+.sabidurian-resize-grip {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.sabidurian-resize-grip line {
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.sabidurian-bar-group:hover .sabidurian-resize-grip {
+  opacity: 1;
+}
+
+/* ── Ghost bar (drag preview) ── */
+.sabidurian-ghost-bar {
+  fill: var(--interactive-accent);
+  opacity: 0.35;
+  stroke: var(--interactive-accent);
+  stroke-width: 2;
+  stroke-dasharray: 6, 3;
+  pointer-events: none;
+  transition: none;
+}
+
+/* ── Drag state ── */
+body.sabidurian-dragging {
+  cursor: grabbing !important;
+  user-select: none !important;
+}
+
+body.sabidurian-dragging * {
+  cursor: grabbing !important;
+}
+
+/* ── Floating date label ── */
+.sabidurian-drag-date-label {
+  position: fixed;
+  z-index: 1001;
+  background: var(--background-primary);
+  border: 1px solid var(--interactive-accent);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--interactive-accent);
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  font-family: var(--font-interface);
+}
+
+/* ══════════════════════════════════════════════
+   Phase 5: Dependency Arrows
+   ══════════════════════════════════════════════ */
+
+/* ── Arrow paths ── */
+.sabidurian-arrow-path {
+  stroke-linecap: round;
+  transition: stroke-width 0.15s ease, opacity 0.15s ease;
+}
+
+.sabidurian-arrow-head {
+  transition: opacity 0.15s ease;
+}
+
+.sabidurian-arrow-ok .sabidurian-arrow-path {
+  stroke: var(--sabidurian-arrow-ok-color);
+}
+.sabidurian-arrow-ok .sabidurian-arrow-head {
+  fill: var(--sabidurian-arrow-ok-color);
+}
+
+.sabidurian-arrow-conflict .sabidurian-arrow-path {
+  stroke: var(--sabidurian-arrow-conflict-color);
+}
+.sabidurian-arrow-conflict .sabidurian-arrow-head {
+  fill: var(--sabidurian-arrow-conflict-color);
+}
+
+/* Arrow hover state */
+.sabidurian-arrow-group {
+  cursor: pointer;
+  opacity: var(--sabidurian-arrow-opacity);
+  transition: opacity 0.15s ease;
+}
+
+.sabidurian-arrow-group:hover,
+.sabidurian-arrow-group.sabidurian-arrow-hover {
+  opacity: 1;
+}
+
+.sabidurian-arrow-group:hover .sabidurian-arrow-path,
+.sabidurian-arrow-group.sabidurian-arrow-hover .sabidurian-arrow-path {
+  stroke-width: var(--sabidurian-arrow-hover-width);
+}
+
+/* Bar highlight when arrow is hovered */
+.sabidurian-bar-group.sabidurian-bar-dep-highlight .sabidurian-bar {
+  opacity: 1;
+  filter: brightness(1.15);
+  stroke: var(--interactive-accent);
+  stroke-width: 2;
+}
+
+/* ── Arrow handles (→○) ── */
+.sabidurian-arrow-handle {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  cursor: crosshair;
+}
+
+.sabidurian-arrow-handle:hover {
+  opacity: 1 !important;
+}
+
+.sabidurian-arrow-handle-circle {
+  fill: var(--background-primary);
+  stroke: var(--interactive-accent);
+  stroke-width: 1.5;
+  transition: fill 0.15s ease;
+}
+
+.sabidurian-arrow-handle:hover .sabidurian-arrow-handle-circle {
+  fill: var(--interactive-accent);
+}
+
+.sabidurian-arrow-handle-stem {
+  stroke: var(--interactive-accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+/* ── Provisional arrow (drag-to-connect) ── */
+.sabidurian-provisional-arrow {
+  stroke: var(--interactive-accent);
+  stroke-width: 2;
+  stroke-dasharray: 8, 4;
+  fill: none;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Drop target highlight */
+.sabidurian-bar-group.sabidurian-arrow-drop-target .sabidurian-bar {
+  stroke: var(--interactive-accent);
+  stroke-width: 3;
+  stroke-dasharray: 6, 3;
+}
+
+body.sabidurian-arrow-dragging {
+  cursor: crosshair !important;
+  user-select: none !important;
+}
+
+body.sabidurian-arrow-dragging * {
+  cursor: crosshair !important;
+}
+
+/* ══════════════════════════════════════════════
+   Phase 6: Grouped Rows & Collapsible Groups
+   ══════════════════════════════════════════════ */
+
+/* ── SVG group headers ── */
+.sabidurian-group-header {
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.sabidurian-group-header-bg {
+  fill: var(--background-secondary);
+  opacity: var(--sabidurian-group-header-opacity);
+  transition: fill 0.15s ease, opacity 0.15s ease;
+}
+
+.sabidurian-group-header:hover .sabidurian-group-header-bg {
+  fill: var(--background-modifier-hover);
+  opacity: 0.98;
+}
+
+.sabidurian-group-chevron {
+  font-size: 10px;
+  fill: var(--text-muted);
+  font-family: var(--font-interface);
+  user-select: none;
+}
+
+.sabidurian-group-name {
+  font-size: var(--sabidurian-group-name-size);
+  font-weight: 600;
+  fill: var(--text-normal);
+  font-family: var(--font-interface);
+  user-select: none;
+}
+
+.sabidurian-group-count {
+  font-size: 11px;
+  fill: var(--text-faint);
+  font-family: var(--font-interface);
+  user-select: none;
+}
+
+/* ── Side table group headers ── */
+.sabidurian-st-group-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+  user-select: none;
+  font-family: var(--font-interface);
+  transition: background 0.15s ease;
+}
+
+.sabidurian-st-group-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.sabidurian-st-group-chevron {
+  font-size: 10px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.sabidurian-st-group-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sabidurian-st-group-count {
+  font-size: 11px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+/* Indented entry rows within groups */
+.sabidurian-st-cell-indented {
+  padding-left: 20px !important;
+}
+
+/* ── Group chevron rotation ── */
+.sabidurian-group-chevron,
+.sabidurian-st-group-chevron {
+  transition: transform 0.2s ease;
+}
+
+/* ══════════════════════════════════════════════
+   Phase 8: Visual Polish
+   ══════════════════════════════════════════════ */
+
+/* ── Skeleton loading state ── */
+.sabidurian-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px 32px;
+  min-height: 200px;
+}
+
+.sabidurian-skeleton-bar {
+  height: 28px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--background-secondary) 25%,
+    var(--background-modifier-hover) 50%,
+    var(--background-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: sabidurian-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes sabidurian-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Retina crisp rendering ── */
+.sabidurian-grid-line-major,
+.sabidurian-grid-line-minor,
+.sabidurian-today-line {
+  shape-rendering: crispEdges;
+}
+
+/* ── SVG canvas subtle background ── */
+.sabidurian-svg {
+  background: var(--background-primary);
+}
+
+/* ══════════════════════════════════════════════
+   Phase 9: Selection & Keyboard Navigation
+   ══════════════════════════════════════════════ */
+
+/* ── Selected bar highlight ── */
+.sabidurian-bar-group.sabidurian-bar-selected .sabidurian-bar {
+  stroke: var(--sabidurian-select-color);
+  stroke-width: var(--sabidurian-select-stroke);
+  opacity: 1;
+}
+
+.sabidurian-bar-group.sabidurian-bar-selected .sabidurian-point-marker {
+  stroke: var(--sabidurian-select-color);
+  stroke-width: 3;
+}
+
+/* Subtle outline ring for selected bars */
+.sabidurian-bar-group.sabidurian-bar-selected {
+  filter: drop-shadow(0 0 3px var(--sabidurian-select-color));
+}
+
+/* Container focusable but no visible outline (selection state on bars instead) */
+.sabidurian-container:focus {
+  outline: none;
+}
+
+/* ── Lock button ── */
+.sabidurian-lock-btn {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.sabidurian-lock-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
+}
+.sabidurian-lock-btn.sabidurian-lock-active {
+  background: var(--background-modifier-error);
+  color: var(--text-on-accent);
+  opacity: 0.9;
+}
+.sabidurian-lock-btn.sabidurian-lock-active:hover {
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════════════
+   Phase 10: Mobile Optimization
+   ══════════════════════════════════════════════ */
+
+/* ── Touch-specific date label positioning ── */
+.sabidurian-touch-date-label {
+  font-size: 13px;
+  padding: 4px 10px;
+}
+
+/* ── Long-press visual feedback ── */
+.sabidurian-bar-group.sabidurian-touch-active .sabidurian-bar {
+  opacity: 1;
+  filter: brightness(1.15);
+  stroke: var(--interactive-accent);
+  stroke-width: 2;
+}
+
+/* ── Responsive: narrow viewports (<768px) ── */
+@media (max-width: 768px) {
+  /* Hide side table on mobile */
+  .sabidurian-side-table-wrapper {
+    display: none !important;
+  }
+  .sabidurian-table-header-spacer {
+    display: none !important;
+  }
+  .sabidurian-divider {
+    display: none !important;
+  }
+
+  /* Hide Table/Show Table button on mobile (table always hidden) */
+  .sabidurian-controls .sabidurian-table-toggle-btn {
+    display: none !important;
+  }
+
+  /* Compact controls bar */
+  .sabidurian-controls {
+    gap: 6px;
+    padding: 4px 8px;
+    flex-wrap: wrap;
+  }
+  .sabidurian-controls-info {
+    font-size: 11px;
+  }
+  .sabidurian-scale-select {
+    font-size: 11px;
+    padding: 2px 4px;
+  }
+  .sabidurian-today-btn {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+
+  /* Single-tier header: hide the top tier */
+  .sabidurian-header-tier-top {
+    display: none !important;
+  }
+  .sabidurian-header-tier-bottom {
+    height: 28px;
+    min-height: 28px;
+  }
+  .sabidurian-header-cell {
+    font-size: 10px;
+  }
+
+  /* Truncate bar labels more aggressively */
+  .sabidurian-bar-label {
+    font-size: 10px;
+  }
+  .sabidurian-bar-label-outside {
+    font-size: 9px;
+  }
+
+  /* Slightly larger touch targets for bars */
+  .sabidurian-bar {
+    /* Minimum hit area via transparent stroke */
+    stroke: transparent;
+    stroke-width: 6;
+  }
+
+  /* Tooltip: position at bottom of screen, full width */
+  .sabidurian-tooltip {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    top: auto !important;
+    max-width: none;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  /* Wider resize grips for touch */
+  .sabidurian-resize-grip line {
+    stroke-width: 2;
+  }
+
+  /* Group headers: truncate names */
+  .sabidurian-group-name {
+    font-size: 11px;
+  }
+  .sabidurian-group-count {
+    font-size: 10px;
+  }
+}
+
+/* ── Extra-small screens (<480px) ── */
+@media (max-width: 480px) {
+  .sabidurian-controls {
+    gap: 4px;
+    padding: 3px 6px;
+  }
+
+  /* Stack controls if needed */
+  .sabidurian-controls-info {
+    font-size: 10px;
+  }
+
+  .sabidurian-bar-label {
+    font-size: 9px;
+  }
+
+  /* Hide arrows toggle on very small screens */
+  .sabidurian-controls .sabidurian-arrows-toggle-btn {
+    display: none;
+  }
+}
+
+/* ── Disable expensive SVG filters on touch devices ── */
+@media (pointer: coarse) {
+  .sabidurian-bar-group.sabidurian-bar-hover {
+    filter: none;
+    transform: none;
+  }
+  .sabidurian-bar-group.sabidurian-bar-selected {
+    filter: none;
+  }
+  .sabidurian-bar-group.sabidurian-bar-selected .sabidurian-bar {
+    stroke: var(--sabidurian-select-color);
+    stroke-width: var(--sabidurian-select-stroke);
+  }
+  /* Disable today marker animation on mobile for performance */
+  .sabidurian-today-line {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   Sequence View — additional / override styles
+   ══════════════════════════════════════════════ */
+
+/* Sequence header: single tier, centered numbers, slightly different style */
+.sabidurian-sequence-container .sabidurian-header-tier-top {
+  display: none; /* Hide top tier — sequence has no tier grouping */
+}
+
+.sabidurian-sequence-container .sabidurian-header-tier-bottom .sabidurian-header-cell {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Dense mode active button indicator */
+.sabidurian-dense-btn.sabidurian-dense-active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* Sequence bars: slightly more rounded for the non-temporal feel */
+.sabidurian-sequence-container .sabidurian-bar {
+  rx: 6;
+  ry: 6;
+}
