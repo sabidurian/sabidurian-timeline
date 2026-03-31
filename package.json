@@ -1,5 +1,5 @@
 {
-  "name": "sabidurian-timeline",
+  "name": "timeline-gantt-view",
   "version": "1.0.0",
   "description": "A Gantt Chart / Timeline View for Obsidian Bases.",
   "main": "main.js",
